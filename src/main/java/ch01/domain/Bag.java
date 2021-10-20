@@ -11,37 +11,26 @@ public class Bag {
     private Invitation invitation;
     private Ticket ticket;
 
-    /**
-     * 이벤트에 당첨된 관람객 가방 안에는 현금과 초대장이 들어있지만 당첨되지 않은 관람객 가방 안에는 초대장이 들어있지 않을 것.
-     * 따라서 ch01.domain.Bag 인스턴스 상태는 현금과 초대장을 함께 보관하거나 초대장 없이 현금만 보관하는 형태 두 가지 중 하나일 것이므로
-     * ch01.domain.Bag 인스턴스 생성 시점에 이 제약을 강제하도록 생성자 정의.
-     */
-    public Bag(long amount) {
-        this(null, amount);
+    public Long hold(Ticket ticket) {
+        if (hasInvitation()) {
+            setTicket(ticket);
+            return 0L;
+        } else {
+            setTicket(ticket);
+            minusAmount(ticket.getFee());
+            return ticket.getFee();
+        }
     }
 
-    public Bag(Invitation invitation, long amount) {
-        this.invitation = invitation;
-        this.amount = amount;
-    }
-
-    public boolean hasInvitation() {
+    private boolean hasInvitation() {
         return invitation != null;
     }
 
-    public boolean hasTicket() {
-        return ticket != null;
-    }
-
-    public void setTicket(Ticket ticket) {
+    private void setTicket(Ticket ticket) {
         this.ticket = ticket;
     }
 
-    public void minusAmount(Long amount) {
+    private void minusAmount(Long amount) {
         this.amount -= amount;
-    }
-
-    public void plusAmount(Long amount) {
-        this.amount += amount;
     }
 }
