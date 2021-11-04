@@ -1,9 +1,9 @@
 package ch02.domain;
 
-public class PercentDiscountPolicy extends DiscountPolicy {
+public class PercentDefaultDiscountPolicy extends DiscountPolicy {
     private double percent;
 
-    public PercentDiscountPolicy(double percent, DiscountCondition... conditions) {
+    public PercentDefaultDiscountPolicy(double percent, DiscountCondition... conditions) {
         super(conditions);
         this.percent = percent;
     }

@@ -11,7 +11,7 @@ public abstract class DiscountPolicy {
         this.conditions = Arrays.asList(conditions);
     }
 
-    public Money caculateDiscountAmount(Screening screening) {
+    public Money calculateDiscountAmount(Screening screening) {
         for (DiscountCondition each : conditions) {
             if (each.isSatisfiedBy(screening)) {
                 return getDiscountAmount(screening);

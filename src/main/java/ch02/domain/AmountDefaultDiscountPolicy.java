@@ -1,9 +1,9 @@
 package ch02.domain;
 
-public class AmountDiscountPolicy extends DiscountPolicy {
+public class AmountDefaultDiscountPolicy extends DiscountPolicy {
     private Money discountAmount;
 
-    public AmountDiscountPolicy(Money discountAmount, DiscountCondition... conditions) {
+    public AmountDefaultDiscountPolicy(Money discountAmount, DiscountCondition... conditions) {
         super(conditions);
         this.discountAmount = discountAmount;
     }
