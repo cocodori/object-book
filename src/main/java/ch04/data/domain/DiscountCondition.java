@@ -1,4 +1,4 @@
-package ch04.domain.dataDriven;
+package ch04.data.domain;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;
